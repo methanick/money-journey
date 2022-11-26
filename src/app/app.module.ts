@@ -1,3 +1,6 @@
+import { SummaryComponent } from './components/summary/summary.component';
+import { OrderComponent } from './components/order/order.component';
+import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,7 +33,10 @@ import { CommonModule } from '@angular/common';
     StyleClassModule,
     CheckboxModule,
     ChipModule,
-    InputTextModule
+    InputTextModule,
+    HomeComponent,
+    OrderComponent,
+    SummaryComponent
     
   ],
   providers: [],

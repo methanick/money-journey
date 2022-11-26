@@ -8,36 +8,37 @@ import { MenuItem, PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-items: MenuItem[]  = [
-  // {label: "Update", icon: 'pi pi-refresh', command: () => {
-  //     this.update();
-  // }},
-  // {label: 'Delete', icon: 'pi pi-times', command: () => {
-  //     this.delete();
-  // }},
-  {label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io'},
-  {separator: true},
-  {label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup']}
-];
 
-  title = 'my-app';
+  isShowOrderPage:boolean
+  isShowSummaryPage:boolean = false
 
-  constructor(private primengConfig: PrimeNGConfig){}
+  constructor(private primengConfig: PrimeNGConfig){
+    if(window.innerWidth > 540){
+      this.isShowOrderPage = true
+    }else{
+      this.isShowOrderPage = false
+    }
+  }
 
 
     ngOnInit() {
       this.primengConfig.ripple = true;
     }
 
-    // save(severity: string) {
-    //     this.messageService.add({severity:severity, summary:'Success', detail:'Data Saved'});
-    // }
+    onOpenPage(page:string){
+      if(page === 'order'){
+        this.isShowOrderPage = true
+      }else if(page === 'summary' ){
+        this.isShowSummaryPage = true
+      }
+    }
 
-    // update() {
-    //     this.messageService.add({severity:'success', summary:'Success', detail:'Data Updated'});
-    // }
-
-    // delete() {
-    //     this.messageService.add({severity:'success', summary:'Success', detail:'Data Deleted'});
-    // }
+    onClosePage(page:string){
+      if(page === 'order'){
+        this.isShowOrderPage = false
+      }else if(page === 'summary' ){
+        this.isShowSummaryPage = false
+      }
+    }
+    
 }

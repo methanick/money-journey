@@ -1,0 +1,47 @@
+<div class="order-panel">
+  <div>
+    <h1>บันทึกรายการ</h1>
+    <i class="pi pi-times absolute top-0 right-0 p-4" (click)="onClosePage('order')"></i>
+  </div>
+  <div class="grid">
+    <div class="field col-12 flex flex-column">
+      <label for="date">วันที่</label>
+      <p-calendar
+        class="w-full"
+        [(ngModel)]="date"
+        [showIcon]="true"
+        dateFormat="dd/mm/yy"
+        inputId="date"
+        (ngModelChange)="log()"
+      ></p-calendar>
+    </div>
+    <div class="field col-12 bg-teal-50 border-round-md">
+      <label for="catagory">หมวดหมู่</label>
+
+      <div class="grid text-xs">
+        <div *ngFor="let item of catagoryList" class="col-3 p-2">
+          <div
+            (click)="onSelectCat(item.id)"
+            [ngClass]="{ active: item.checked }"
+            class="cat-item flex flex-column align-items-center p-2 cursor-pointer border-round-md"
+          >
+            <img width="24px" height="24px" alt="food" [src]="item.imgPath" />
+            <span>{{ item.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field col-8">
+      <label for="orderName">รายการ</label>
+      <input class="w-full" type="text" pInputText [(ngModel)]="orderName" name="orderName" />
+    </div>
+    <div class="field col-4">
+      <label for="amount">จำนวน</label>
+      <p-inputNumber class="w-full" [(ngModel)]="amount" name="amount" suffix=" ฿"></p-inputNumber>
+    </div>
+    <div class="field col-12">
+      <button class="w-full" pButton type="button" label="Save"></button>
+    </div>
+  </div>
+</div>

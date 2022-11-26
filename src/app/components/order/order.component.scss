@@ -1,0 +1,7 @@
+@import 'primeflex/primeflex.scss';
+
+.cat-item {
+  &.active {
+    @include styleclass('bg-primary');
+  }
+}

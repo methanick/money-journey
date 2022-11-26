@@ -1,0 +1,31 @@
+@import '/src/assets/scss/variable.scss';
+
+.big-card {
+  //   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.main {
+  width: 100%;
+  //   background-color: #f0f7f7;
+  @media (min-width: $bp-md) {
+    position: static;
+  }
+}
+.side {
+  top: 100px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  display: none;
+
+  @media (min-width: $bp-sm) {
+    width: 50%;
+    position: static;
+    display: block;
+  }
+
+  &.active {
+    display: block;
+  }
+}
